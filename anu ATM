@@ -8,7 +8,9 @@ int main(){
     //Inisialisasi karo Deklarasi
     int KodeKartu, PIN, NomorRekening, NomorVA;
     int default_KodeKartu = 1212, default_PIN = 666, default_Saldo = 5000, default_NomorRekening = 12345, default_NomorVA = 0123456;
-    int pilih, nominal, lanjut;
+    int pilih, nominal;
+    char lanjut;
+    int kesempatan = 0;
     int ulang = 0;
 
     //Loop Gawe Validasi Kode Kartu dan PIN
@@ -21,7 +23,7 @@ int main(){
 
     if((KodeKartu == default_KodeKartu)&&(PIN == default_PIN)){
         //Loop Gawe Menu Transaksi(Utama)
-        while(pilih != 0){
+        do{
         cout<<"Menu: \n";
         cout<<"1. Transfer \n";
         cout<<"2. Tarik Tunai \n";
@@ -35,7 +37,7 @@ int main(){
         switch (pilih){
             case 1:
                 //Implementasi Program Gawe Case 1
-                while(ulang < 1){
+                do{
                 cout<<"#--------------------------TRANSFER---------------------------#\n\n";
                 cout<<"Masukkan Nomor Rekening Tujuan: ";
                 cin>>NomorRekening;
@@ -54,17 +56,19 @@ int main(){
                       break;
                     }else{
                         default_Saldo <= nominal;
-                        cout<<"----------------------------------------------- \n";
-                        cout<<"Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
-                        cout<<"----------------------------------------------- \n\n";
+                        cout<<"*-------------------------------------------------------------* \n";
+                        cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
+                        cout<<"*-------------------------------------------------------------* \n\n";
+                      break;
                     }
                 }else{
                     ulang == 1;
-                    cout<<"|---------------------------------------------| \n";
-                    cout<<" Nomor Rekening Tidak Terdaftar, Mohon Ulangi! \n";
-                    cout<<"|---------------------------------------------| \n\n";
+                    cout<<endl;
+                    cout<<"|-------------------------------------------------------------| \n";
+                    cout<<"         Nomor Rekening Tidak Terdaftar, Mohon Ulangi! \n";
+                    cout<<"|-------------------------------------------------------------| \n";
                   }
-                }
+                }while(ulang < 1);
               break;
             case 2:
                 //Implementasi Program Gawe Case 2
@@ -73,18 +77,18 @@ int main(){
                 cin>>nominal;
                 cout<<"                                     ^^^^^^ \n";
                 if(nominal <= default_Saldo){
-                    cout<<"---------------------------------------- \n";
-                    cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
+                    cout<<"*-------------------------------------------------------------* \n";
+                    cout<<"Transaksi Anda Berhasil dan Sedang di Proses!! \n";
                     default_Saldo = default_Saldo - nominal;
                     cout<<"                |-----------| \n";
                     cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
                     cout<<"                |-----------| \n";
-                    cout<<"---------------------------------------- \n";
+                    cout<<"*-------------------------------------------------------------* \n";
                 }else{
                     default_Saldo <= nominal;
-                    cout<<"----------------------------------------------- \n";
-                    cout<<"Transaksi Gagal, Saldomu Kurang (Kerjo Maneh!!) \n";
-                    cout<<"----------------------------------------------- \n\n";
+                    cout<<"*-------------------------------------------------------------* \n";
+                    cout<<"         Transaksi Gagal, Saldomu Kurang (Kerjo Maneh!!) \n";
+                    cout<<"*-------------------------------------------------------------* \n\n";
                 }
               break;
             case 3:
@@ -100,30 +104,33 @@ int main(){
               break;
             case 4:
                 //Implementasi Program Gawe Case 4
-                while(ulang < 3){
+                do{
                 cout<<"#-------------------------INFO SALDO--------------------------#\n\n";
-                cout<<"Silahkan Masukkan PIN Terlebih Dahulu Untuk Mengetahui Saldo Anda \n";
+                cout<<"Untuk Mengetahui Saldo Anda, Silahkan Masukkan PIN \n";
                 cout<<"Masukkan PIN: ";
                 cin>>PIN;
+                cout<<endl;
                 if(PIN == default_PIN){
                     cout<<"                    |-----------| \n";
                     cout<<"Saldo Anda Sekarang: Rp."<<default_Saldo<<endl;
                     cout<<"                    |-----------| \n";
                   break;
                 }else{
-                    ulang++;
-                    if(ulang == 2){
-                        cout<<"------------------------------------------------- \n";
-                        cout<<"Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
-                        cout<<"------------------------------------------------- \n\n";
+                    kesempatan++;
+                    if(kesempatan == 2){
+                        cout<<"*-------------------------------------------------------------* \n";
+                        cout<<"     Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
+                        cout<<"*-------------------------------------------------------------* \n\n";
                     }
-                  }
-                }
-                if(ulang == 3){
-                    pilih = 0;
+                    if(kesempatan == 3){
+                    ulang = 3;
                     cout<<"*-------------------------------------------------------------* \n";
                     cout<<"            ATM Anda di BLOKIR!!!, Mampus Kau Anj \n";
-                }
+                    pilih = 0;
+                  break;
+                   }
+                  }
+                }while(kesempatan < 3);
               break;
             case 5:
                 //Implementasi Program Gawe Case 5
@@ -148,7 +155,16 @@ int main(){
                 cout<<"#-------------------------------------------------------------# \n";
               break;
         }
-       }
+        if(pilih != 0){
+        cout<<"Apakah Ingin Melanjutkan Transaksi Lain? (Y/N): ";
+        cin>>lanjut;
+        cout<<endl;
+            if(lanjut == 'N'||lanjut == 'n'){
+                pilih = 0;
+            }
+        }
+       }while(pilih != 0);
+            ulang = 3;
     }else{
         ulang = ulang + 1;
         if(ulang == 2){

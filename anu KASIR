@@ -1,0 +1,149 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+ int pilihan,totalPaket,banyak,hasil=0;
+ char pilihanPaket,yesNo;
+ int diskon = 10;
+ int x=0;
+ int totalSeluruhPesanan[x];
+
+    cout<<"==========================================================\n";
+    cout<<"-----------------------666'S DINNER-----------------------\n";
+    cout<<"---------------SELAMAT DATANG ELO SEMUA ANJ---------------\n";
+    cout<<"==========================================================\n\n";
+    cout<<"!!! List Menu & Paket !!! \n\n";
+    cout<<"1. Paket Haram \n";
+    cout<<"2. Paket Nasi \n";
+    cout<<"3. Paket DeepSeafood \n\n";
+    cout<<"==========================================================\n";
+
+  do{
+    cout<<"Masukkan Menu Yang Elo Pilih : ";
+    cin>>pilihan;
+    cout<<endl;
+
+  switch(pilihan){
+   case 1:
+    cout<<"!!! List Paket Haram !!! \n\n";
+    cout<<"A. Kepala Baphomet Bakar Sambal Bawang + Teh        : Rp.2.345.000\n";
+    cout<<"B. Biawak Goreng Kremes + Es Gudei                  : Rp.80.000\n";
+    cout<<"C. Babi Guling Krispi Extra Hot(18+) + Aqua 500ml   : Rp.1.150.000\n\n";
+    awal1:
+    cout<<"Masukkan Pilihan Paket (A,B,C) : ";
+    cin>>pilihanPaket;
+
+    if(pilihanPaket == 'A' || pilihanPaket == 'a'){
+     totalPaket=2345000;
+    } else if(pilihanPaket == 'B' || pilihanPaket == 'b'){
+     totalPaket=80000;
+    } else if(pilihanPaket == 'C' || pilihanPaket == 'c'){
+     totalPaket=1150000;
+    } else {
+        pilihanPaket>=pilihanPaket;
+     cout<<"----------------------------------------------------------\n";
+     cout<<"List Paket Tersedia 3 Macam tok, Matamu! Pilih Betul-Betul!\n";
+     cout<<"----------------------------------------------------------\n";
+     goto awal1;
+    }
+
+    cout<<endl;
+    cout<<"Berapa Banyak Pesanan? (1 tok yo gaweo dewe pren) : ";
+    cin>>banyak;
+    cout<<endl;
+
+    totalSeluruhPesanan[x]=totalPaket*banyak;
+
+    cout<<"Apakah Ada Pesanan Lainnya? (Y/N) : ";
+    cin>>yesNo;
+    cout<<endl;
+   break;
+
+   case 2:
+    cout<<"!!! List Paket Nasi !!! \n";
+    cout<<"A. Nasi Goreng Spesial B2    : Rp.243.000\n";
+    cout<<"B. Nasi Bakar Bakso Kntl     : Rp.85.000\n";
+    cout<<"C. Nasi Dibully Jumbo Abizz  : Rp.72.000\n\n";
+    awal2:
+    cout<<"Masukkan Pilihan Paket (A,B,C): ";
+    cin>>pilihanPaket;;
+    cout<<endl;
+
+    if(pilihanPaket == 'A' || pilihanPaket == 'a'){
+     totalPaket=243000;
+    }else if(pilihanPaket == 'B' || pilihanPaket == 'b'){
+     totalPaket=85000;
+    }else if(pilihanPaket == 'C' || pilihanPaket == 'c'){
+     totalPaket=72000;
+    }else{
+        pilihanPaket>=pilihanPaket;
+     cout<<"-----------------------------------------------------------\n";
+     cout<<"List Paket Tersedia 3 Macam tok, Matamu! Pilih Betul-Betul!\n";
+     cout<<"-----------------------------------------------------------\n";
+     goto awal2;
+    }
+
+    cout<<"Berapa Banyak Pesanan? (1 tok yo gaweo dewe pren) : ";
+    cin>>banyak;
+    cout<<endl;
+
+    totalSeluruhPesanan[x]=totalPaket*banyak;
+
+    cout<<"Apakah Ada Pesanan Lainnya? (Y/N) : ";
+    cin>>yesNo;
+    cout<<endl;
+   break;
+
+   case 3:
+    cout<<"!!! List Paket DeepSeafood !!! \n\n";
+    cout<<"A. Hiu Mini Presto Madu Pedas  : Rp.115.000\n";
+    cout<<"B. Kraken Bakar Spesial        : Rp.1.126.000\n";
+    cout<<"C. Piranha Panggang Pedas      : Rp.62.000\n\n";
+    awal3:
+    cout<<"Masukkan Pilihan Paket (A,B,C): ";
+    cin>>pilihanPaket;;
+    cout<<endl;
+
+    if(pilihanPaket == 'A' || pilihanPaket == 'a'){
+     totalPaket=115000;
+    }else if(pilihanPaket == 'B' || pilihanPaket == 'b'){
+     totalPaket=1126000;
+    }else if(pilihanPaket == 'C' || pilihanPaket == 'c'){
+     totalPaket=62000;
+    }else{
+        pilihanPaket>=pilihanPaket;
+     cout<<"-----------------------------------------------------------\n";
+     cout<<"List Paket Tersedia 3 Macam tok, Matamu! Pilih Betul-Betul!\n";
+     cout<<"-----------------------------------------------------------\n";
+     goto awal3;
+    }
+
+    cout<<"Berapa Banyak Pesanan? (1 tok yo gaweo dewe pren) : ";
+    cin>>banyak;
+    cout<<endl;
+
+    totalSeluruhPesanan[x]=totalPaket*banyak;
+
+    cout<<"Apakah Ada Pesanan Lainnya? (Y/N) : ";
+    cin>>yesNo;
+    cout<<endl;
+   break;
+  }
+  x++;
+ } while(yesNo == 'Y' || yesNo == 'y');
+
+ cout<<"==========================================================\n";
+ cout<<"---------------------Struk Pembayaran---------------------\n";
+ cout<<"==========================================================\n";
+
+ for(int i=0;i<x;i++){
+  hasil=hasil+totalSeluruhPesanan[i];
+ }
+
+ cout<<"Total Pesanan : Rp."<<hasil<<endl;
+ cout<<"Diskon 10% : Rp."<<hasil/diskon<<endl;
+ cout<<"Total Bayar : Rp."<<hasil - (hasil/diskon)<<endl;
+ cout<<endl;
+ cout<<"Apakah Elo Berdiri Disini Terus? Ganggu Antrian blok :) \n";
+ cout<<"Terimakasih Gausah Datang Lagi Ya Anj \n";
+}

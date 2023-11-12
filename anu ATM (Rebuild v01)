@@ -6,70 +6,118 @@ int main(){
     cout<<"#                     ===   -BCA-    ===                      #\n";
     cout<<"#---------------------BANK CENTRAL ANJAY----------------------#\n\n";
     //Inisialisasi karo Deklarasi
-    int KodeKartu, PIN, NomorRekening, NomorVA;
-    int default_KodeKartu = 1212, default_PIN = 666, default_Saldo = 5000, default_NomorRekening = 12345, default_NomorVA = 0123456;
-    int pilih, nominal;
+    int NomorRekeningAcel, PIN, NomorRekeningLain, NomorRekeningBCA, NomorVA;
+    int default_NomorRekeningAcel = 1212, default_PIN = 666, default_Saldo = 5000;
+    int default_NomorRekeningBCA = 12345, default_NomorRekeningLain = 54321, default_NomorVA = 0123456;
+    int pilih, nominal, pilihtransfer;
     char lanjut;
     int kesempatan = 0;
     int ulang = 0;
 
     //Loop Gawe Validasi Kode Kartu dan PIN
     while(ulang < 3){
-    cout<<"Masukkan Kode Kartu: ";
-    cin>>KodeKartu;
+    cout<<"Masukkan No Rek Anda: ";
+    cin>>NomorRekeningAcel;
     cout<<"Masukkan PIN: ";
     cin>>PIN;
     cout<<endl;
 
-    if((KodeKartu == default_KodeKartu)&&(PIN == default_PIN)){
+    if((NomorRekeningAcel == default_NomorRekeningAcel)&&(PIN == default_PIN)){
         //Loop Gawe Menu Transaksi(Utama)
         do{
-        cout<<"Menu: \n";
-        cout<<"1. Transfer \n";
-        cout<<"2. Tarik Tunai \n";
-        cout<<"3. Setor Tunai \n";
-        cout<<"4. Info Saldo \n";
-        cout<<"5. Pembayaran Virtual Account \n";
-        cout<<"0. EXIT \n";
-        cout<<"Masukkan Pilihan Anda: ";
-        cin>>pilih;
-        cout<<endl;
-        switch (pilih){
+         cout<<"Menu: \n";
+         cout<<"1. Transfer \n";
+         cout<<"2. Tarik Tunai \n";
+         cout<<"3. Setor Tunai \n";
+         cout<<"4. Info Saldo \n";
+         cout<<"5. Pembayaran Virtual Account \n";
+         cout<<"0. EXIT \n";
+         cout<<"Masukkan Pilihan Anda: ";
+         cin>>pilih;
+         cout<<endl;
+        switch(pilih){
             case 1:
                 //Implementasi Program Gawe Case 1
-                do{
                 cout<<"#--------------------------TRANSFER---------------------------#\n\n";
-                cout<<"Masukkan Nomor Rekening Tujuan: ";
-                cin>>NomorRekening;
-                if(NomorRekening == default_NomorRekening){
-                    cout<<"Masukkan Nominal Yang Ingin di Transfer: Rp.";
-                    cin>>nominal;
-                    cout<<"                                           ^^^^^^ \n";
-                    if(default_Saldo >= nominal){
-                        cout<<"---------------------------------------- \n";
-                        cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
-                        default_Saldo = default_Saldo - nominal;
-                        cout<<"                |-----------| \n";
-                        cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
-                        cout<<"                |-----------| \n";
-                        cout<<"---------------------------------------- \n";
+                cout<<"Daftar Transfer: \n";
+                cout<<"1. Antar Rekening \n";
+                cout<<"2. Antar Bank \n";
+                cout<<"0. Kembali ke Menu Utama \n";
+                cout<<"Masukkan Pilihan Anda: ";
+                cin>>pilihtransfer;
+                cout<<endl;
+                switch(pilihtransfer){
+                    case 1:
+                        do{
+                         cout<<"Masukkan Nomor Rekening Tujuan: ";
+                         cin>>NomorRekeningBCA;
+                         if(NomorRekeningBCA == default_NomorRekeningBCA){
+                             cout<<"Masukkan Nominal Yang Ingin di Transfer: Rp.";
+                             cin>>nominal;
+                             cout<<"                                           ^^^^^^ \n";
+                             if(default_Saldo >= nominal){
+                                 cout<<"---------------------------------------- \n";
+                                 cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
+                                 default_Saldo = default_Saldo - nominal;
+                                 cout<<"                |-----------| \n";
+                                 cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
+                                 cout<<"                |-----------| \n";
+                                 cout<<"---------------------------------------- \n";
+                               break;
+                             }else{
+                                 default_Saldo <= nominal;
+                                 cout<<"*-------------------------------------------------------------* \n";
+                                 cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
+                                 cout<<"*-------------------------------------------------------------* \n\n";
+                               break;
+                             }
+                         }else{
+                             ulang == 1;
+                             cout<<endl;
+                             cout<<"|-------------------------------------------------------------| \n";
+                             cout<<"         Nomor Rekening Tidak Terdaftar, Mohon Ulangi! \n";
+                             cout<<"|-------------------------------------------------------------| \n";
+                           }
+                         }while(ulang < 1);
                       break;
-                    }else{
-                        default_Saldo <= nominal;
-                        cout<<"*-------------------------------------------------------------* \n";
-                        cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
-                        cout<<"*-------------------------------------------------------------* \n\n";
+                    case 2:
+                        do{
+                         cout<<"Masukkan Nomor Rekening Tujuan: ";
+                         cin>>NomorRekeningLain;
+                         if(NomorRekeningLain == default_NomorRekeningLain){
+                             cout<<"Masukkan Nominal Yang Ingin di Transfer: Rp.";
+                             cin>>nominal;
+                             cout<<"                                           ^^^^^^ \n";
+                             if(default_Saldo >= nominal){
+                                 cout<<"---------------------------------------- \n";
+                                 cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
+                                 default_Saldo = default_Saldo - nominal;
+                                 cout<<"                |-----------| \n";
+                                 cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
+                                 cout<<"                |-----------| \n";
+                                 cout<<"---------------------------------------- \n";
+                               break;
+                             }else{
+                                 default_Saldo <= nominal;
+                                 cout<<"*-------------------------------------------------------------* \n";
+                                 cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
+                                 cout<<"*-------------------------------------------------------------* \n\n";
+                               break;
+                             }
+                         }else{
+                             ulang == 1;
+                             cout<<endl;
+                             cout<<"|-------------------------------------------------------------| \n";
+                             cout<<"         Nomor Rekening Tidak Terdaftar, Mohon Ulangi! \n";
+                             cout<<"|-------------------------------------------------------------| \n";
+                           }
+                         }while(ulang < 1);
                       break;
-                    }
-                }else{
-                    ulang == 1;
-                    cout<<endl;
-                    cout<<"|-------------------------------------------------------------| \n";
-                    cout<<"         Nomor Rekening Tidak Terdaftar, Mohon Ulangi! \n";
-                    cout<<"|-------------------------------------------------------------| \n";
-                  }
-                }while(ulang < 1);
-              break;
+                    case 0:
+                        ulang = 3;
+                      break;
+                        }
+                      break;
             case 2:
                 //Implementasi Program Gawe Case 2
                 cout<<"#-------------------------TARIK TUNAI-------------------------#\n\n";
@@ -98,9 +146,9 @@ int main(){
                 cin>>nominal;
                 cout<<"                                            ^^^^^^ \n";
                 default_Saldo += nominal;
-                cout<<"                                                             |-----------| \n";
-                cout<<"Transaksi Berhasil, Duit Anda Sudah di Hap:) Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
-                cout<<"                                                             |-----------| \n";
+                cout<<"                                                                 |-----------| \n";
+                cout<<"Transaksi Berhasil, Duit Anda Sudah di Hap:) Saldo Anda Sekarang: Rp."<<default_Saldo<<endl;
+                cout<<"                                                                 |-----------| \n";
               break;
             case 4:
                 //Implementasi Program Gawe Case 4
@@ -179,5 +227,6 @@ int main(){
   }
     cout<<"          Silahkan Meninggalkan ATM, Nyrimpeti ae!! \n";
     cout<<"*-------------------------------------------------------------* \n";
+    cout<<"                      ***TERIMA KASIH***                      \n";
     return 0;
 }

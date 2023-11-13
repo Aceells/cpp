@@ -55,43 +55,43 @@ int main(){
                              cout<<"Masukkan Nominal Yang Ingin di Transfer: Rp.";
                              cin>>nominal;
                              do{
-                             cout<<"Konfirmasi PIN Anda: ";
-                             cin>>PIN;
-                             cout<<endl;
-                             if(PIN == default_PIN){
-                                 if(default_Saldo >= nominal){
-                                     cout<<"*-------------------------------------------------------------* \n";
-                                     cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
-                                     default_Saldo = default_Saldo - nominal;
-                                     cout<<"                |-----------| \n";
-                                     cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
-                                     cout<<"                |-----------| \n";
-                                     cout<<"*-------------------------------------------------------------* \n";
-                                   break;
-                                 }else{
-                                     default_Saldo <= nominal;
-                                     cout<<"*-------------------------------------------------------------* \n";
-                                     cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
-                                     cout<<"*-------------------------------------------------------------* \n\n";
-                                   break;
-                                 }
-                             }else{
-                                 kesempatan++;
-                                 if(kesempatan == 2){
-                                     cout<<"*-------------------------------------------------------------* \n";
-                                     cout<<"     Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
-                                     cout<<"*-------------------------------------------------------------* \n\n";
-                                 }
-                                 if(kesempatan == 3){
-                                     ulang = 3;
-                                     cout<<"*-------------------------------------------------------------* \n";
-                                     cout<<"            ATM Anda di BLOKIR!!!, Mampus Kau Anj \n";
-                                     pilih = 0;
-                                   break;
-                                 }
-                             }
-                           }while(kesempatan < 3);
-                           break;
+                              cout<<"Konfirmasi PIN: ";
+                              cin>>PIN;
+                              cout<<endl;
+                              if(PIN == default_PIN){
+                                  if(default_Saldo >= nominal){
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
+                                      default_Saldo = default_Saldo - nominal;
+                                      cout<<"                |-----------| \n";
+                                      cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
+                                      cout<<"                |-----------| \n";
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                    break;
+                                  }else{
+                                      default_Saldo <= nominal;
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
+                                      cout<<"*-------------------------------------------------------------* \n\n";
+                                    break;
+                                  }
+                              }else{
+                                  kesempatan++;
+                                  if(kesempatan == 2){
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"     Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
+                                      cout<<"*-------------------------------------------------------------* \n\n";
+                                  }
+                                  if(kesempatan == 3){
+                                      ulang = 3;
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"            ATM Anda di BLOKIR!!!, Mampus Kau Anj \n";
+                                      pilih = 0;
+                                    break;
+                                  }
+                              }
+                             }while(kesempatan < 3);
+                            break;
                          }else{
                              ulang == 1;
                              cout<<endl;
@@ -99,8 +99,8 @@ int main(){
                              cout<<"         Nomor Rekening Tidak Terdaftar, Mohon Ulangi! \n";
                              cout<<"|-------------------------------------------------------------| \n\n";
                            }
-                         }while(ulang < 1);
-                      break;
+                        }while(ulang < 1);
+                       break;
                     case 2:
                         do{
                          cout<<"Masukkan Nomor Rekening Tujuan: ";
@@ -108,48 +108,68 @@ int main(){
                          if(NomorRekeningLain == default_NomorRekeningLain){
                              cout<<"Masukkan Nominal Yang Ingin di Transfer: Rp.";
                              cin>>nominal;
-                             cout<<"                                           ^^^^^^ \n";
-                             if(default_Saldo >= nominal){
-                                 cout<<"Nominal Transfer: Rp."<<nominal<<endl;
-                                 cout<<"Inc Biaya Admin : Rp."<<default_BiayaAdmin<<endl;
-                                 cout<<"                  -------- + \n";
-                                 nominal = nominal + default_BiayaAdmin;
-                                 cout<<"                  Rp."<<nominal<<endl;
-                                 cout<<"*-------------------------------------------------------------* \n";
-                                 cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
-                                 default_Saldo = default_Saldo - nominal;
-                                 cout<<"                |-----------| \n";
-                                 cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
-                                 cout<<"                |-----------| \n";
-                                 cout<<"*-------------------------------------------------------------* \n";
-                               break;
-                             }else{
-                                 default_Saldo <= nominal;
-                                 cout<<"*-------------------------------------------------------------* \n";
-                                 cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
-                                 cout<<"*-------------------------------------------------------------* \n\n";
-                               break;
-                             }
+                             do{
+                              cout<<"Konfirmasi PIN: ";
+                              cin>>PIN;
+                              cout<<endl;
+                              if(PIN == default_PIN){
+                                  if(default_Saldo >= nominal){
+                                      cout<<"Nominal Transfer: Rp."<<nominal<<endl;
+                                      cout<<"Inc Biaya Admin : Rp."<<default_BiayaAdmin<<endl;
+                                      cout<<"                  -------- + \n";
+                                      nominal = nominal + default_BiayaAdmin;
+                                      cout<<"                  Rp."<<nominal<<endl;
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
+                                      default_Saldo = default_Saldo - nominal;
+                                      cout<<"                |-----------| \n";
+                                      cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
+                                      cout<<"                |-----------| \n";
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                    break;
+                                  }else{
+                                      default_Saldo <= nominal;
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"         Transaksi Gagal, Saldomu Kureng (Kerjo Maneh!!) \n";
+                                      cout<<"*-------------------------------------------------------------* \n\n";
+                                    break;
+                                  }
+                              }else{
+                                  kesempatan++;
+                                  if(kesempatan == 2){
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"     Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
+                                      cout<<"*-------------------------------------------------------------* \n\n";
+                                  }
+                                  if(kesempatan == 3){
+                                      ulang = 3;
+                                      cout<<"*-------------------------------------------------------------* \n";
+                                      cout<<"            ATM Anda di BLOKIR!!!, Mampus Kau Anj \n";
+                                      pilih = 0;
+                                    break;
+                                  }
+                              }
+                             }while(kesempatan < 3);
+                            break;
                          }else{
                              ulang == 1;
                              cout<<endl;
                              cout<<"|-------------------------------------------------------------| \n";
                              cout<<"         Nomor Rekening Tidak Terdaftar, Mohon Ulangi! \n";
                              cout<<"|-------------------------------------------------------------| \n\n";
-                           }
-                         }while(ulang < 1);
+                         }
+                        }while(ulang < 1);
                       break;
                     case 0:
                         ulang = 3;
                        break;
-                        }
-                      break;
+                }
+                    break;
             case 2:
                 //Implementasi Program Gawe Case 2
                 cout<<"#-------------------------TARIK TUNAI-------------------------#\n\n";
                 cout<<"Masukkan Nominal Yang di Inginkan: Rp.";
                 cin>>nominal;
-                cout<<"                                     ^^^^^^ \n";
                 if(nominal <= default_Saldo){
                     cout<<"*-------------------------------------------------------------* \n";
                     cout<<"Transaksi Anda Berhasil dan Sedang di Proses!! \n";
@@ -170,7 +190,6 @@ int main(){
                 cout<<"#-------------------------SETOR TUNAI-------------------------#\n\n";
                 cout<<"Masukkan Nominal Yang Mau di Setor Tunai: Rp.";
                 cin>>nominal;
-                cout<<"                                            ^^^^^^ \n";
                 default_Saldo += nominal;
                 cout<<"                                                                 |-----------| \n";
                 cout<<"Transaksi Berhasil, Duit Anda Sudah di Hap:) Saldo Anda Sekarang: Rp."<<default_Saldo<<endl;
@@ -213,7 +232,6 @@ int main(){
                 cin>>NomorVA;
                 cout<<"Masukkan Nominal Pembayaran: Rp.";
                 cin>>nominal;
-                cout<<"                               ^^^^^^ \n";
                 if(nominal > default_Saldo){
                     cout<<"Saldo Anda Tidak Mencukupi, Anj! \n";
                 }else{
@@ -238,7 +256,7 @@ int main(){
             }
         }
        }while(pilih != 0);
-            ulang = 3;
+               ulang = 3;
     }else{
         ulang = ulang + 1;
         if(ulang == 2){

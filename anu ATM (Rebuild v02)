@@ -54,19 +54,19 @@ int main(){
                          if(NomorRekeningBCA == default_NomorRekeningBCA){
                              cout<<"Masukkan Nominal Yang Ingin di Transfer: Rp.";
                              cin>>nominal;
-                             cout<<"                                           ^^^^^^ \n";
-                             cout<<"Masukkan PIN: ";
+                             do{
+                             cout<<"Konfirmasi PIN Anda: ";
                              cin>>PIN;
                              cout<<endl;
                              if(PIN == default_PIN){
                                  if(default_Saldo >= nominal){
-                                     cout<<"---------------------------------------- \n";
+                                     cout<<"*-------------------------------------------------------------* \n";
                                      cout<<"Transaksi Berhasil dan Sedang di Proses!! \n";
                                      default_Saldo = default_Saldo - nominal;
                                      cout<<"                |-----------| \n";
                                      cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
                                      cout<<"                |-----------| \n";
-                                     cout<<"---------------------------------------- \n";
+                                     cout<<"*-------------------------------------------------------------* \n";
                                    break;
                                  }else{
                                      default_Saldo <= nominal;
@@ -90,6 +90,8 @@ int main(){
                                    break;
                                  }
                              }
+                           }while(kesempatan < 3);
+                           break;
                          }else{
                              ulang == 1;
                              cout<<endl;

@@ -16,7 +16,7 @@ int main(){
     int NomorRekeningAcel, PIN, NomorRekeningLain, NomorRekeningBCA, NomorVA, BiayaAdmin;
     int default_NomorRekeningAcel = 1212, default_PIN = 666, default_Saldo = 50000, default_BiayaAdmin = 2500;
     int default_NomorRekeningBCA = 12345, default_NomorRekeningLain = 54321, default_NomorVA = 0123456;
-    int pilih, nominal, pilihtransfer;
+    int pilih, nominal, pilihtransfer, pilihtariktunai;
     char lanjut;
     int kesempatan = 0;
     int ulang = 0;
@@ -46,7 +46,6 @@ int main(){
             case 1:
                 //Implementasi Program Gawe Case 1
                 cout<<"#--------------------------TRANSFER---------------------------#\n\n";
-                cout<<"Daftar Transfer: \n";
                 cout<<"1. Antar Rekening \n";
                 cout<<"2. Antar Bank \n";
                 cout<<"0. Kembali ke Menu Utama \n\n";
@@ -174,11 +173,22 @@ int main(){
             case 2:
                 //Implementasi Program Gawe Case 2
                 cout<<"#-------------------------TARIK TUNAI-------------------------#\n\n";
-                cout<<"Masukkan Nominal Yang di Inginkan: Rp.";
-                cin>>nominal;
+                cout<<"1. Rp.50000 \n";
+                cout<<"2. Rp.100000 \n";
+                cout<<"3. Info Saldo \n";
+                cout<<"0. Kembali ke Menu Utama \n\n";
+                cout<<"Masukkan Pilihan Anda: ";
+                cin>>pilihtariktunai;
+                cout<<endl;
+                switch(pilihtariktunai){
+                    case 1:
+                
+                    cout<<"Masukkan Nominal Yang Mau di Tarik: Rp.";
+                    cin>>nominal;
                 if(nominal <= default_Saldo){
                     cout<<"*-------------------------------------------------------------* \n";
                     cout<<"Transaksi Anda Berhasil dan Sedang di Proses!! \n";
+                    cout<<"Jangan Meninggalkan Mesin!, Uang Anda Akan Keluar \n";
                     default_Saldo = default_Saldo - nominal;
                     cout<<"                |-----------| \n";
                     cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;

@@ -2,6 +2,13 @@
 using namespace std;
 
 int main(){
+    cout<<"O==========================================O \n";
+    cout<<"| Nama : Lintang Pratama Putra (Ocal/Acel) | \n";
+    cout<<"| NPM  : 06.2023.1.07644                   | \n";
+    cout<<"| Prodi: Teknik Informatika                | \n";
+    cout<<"O==========================================O \n";
+    cout<<"Tugas Petruk: 'Program ATM Sederhana' \n\n";
+    cout<<endl;
     cout<<"#---------------------BANK CENTRAL ANJAY----------------------#\n";
     cout<<"#                     ===   -BCA-    ===                      #\n";
     cout<<"#---------------------BANK CENTRAL ANJAY----------------------#\n\n";
@@ -100,7 +107,7 @@ int main(){
                              cout<<"|-------------------------------------------------------------| \n\n";
                            }
                         }while(ulang < 1);
-                       break;
+                      break;
                     case 2:
                         do{
                          cout<<"Masukkan Nomor Rekening Tujuan: ";
@@ -162,9 +169,8 @@ int main(){
                       break;
                     case 0:
                         ulang = 3;
-                       break;
                 }
-                    break;
+              break;
             case 2:
                 //Implementasi Program Gawe Case 2
                 cout<<"#-------------------------TARIK TUNAI-------------------------#\n\n";
@@ -198,32 +204,32 @@ int main(){
             case 4:
                 //Implementasi Program Gawe Case 4
                 do{
-                cout<<"#-------------------------INFO SALDO--------------------------#\n\n";
-                cout<<"Untuk Mengetahui Saldo Anda, Silahkan Masukkan PIN \n";
-                cout<<"Masukkan PIN: ";
-                cin>>PIN;
-                cout<<endl;
-                if(PIN == default_PIN){
-                    cout<<"                    |-----------| \n";
-                    cout<<"Saldo Anda Sekarang: Rp."<<default_Saldo<<endl;
-                    cout<<"                    |-----------| \n";
-                  break;
-                }else{
-                    kesempatan++;
-                    if(kesempatan == 2){
-                        cout<<"*-------------------------------------------------------------* \n";
-                        cout<<"     Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
-                        cout<<"*-------------------------------------------------------------* \n\n";
-                    }
-                    if(kesempatan == 3){
-                        ulang = 3;
-                        cout<<"*-------------------------------------------------------------* \n";
-                        cout<<"            ATM Anda di BLOKIR!!!, Mampus Kau Anj \n";
-                        pilih = 0;
-                     break;
-                    }
-                }
-              }while(kesempatan < 3);
+                 cout<<"#-------------------------INFO SALDO--------------------------#\n\n";
+                 cout<<"Untuk Mengetahui Saldo Anda, Silahkan Masukkan PIN \n";
+                 cout<<"Masukkan PIN: ";
+                 cin>>PIN;
+                 cout<<endl;
+                 if(PIN == default_PIN){
+                     cout<<"                    |-----------| \n";
+                     cout<<"Saldo Anda Sekarang: Rp."<<default_Saldo<<endl;
+                     cout<<"                    |-----------| \n";
+                   break;
+                 }else{
+                     kesempatan++;
+                     if(kesempatan == 2){
+                         cout<<"*-------------------------------------------------------------* \n";
+                         cout<<"     Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
+                         cout<<"*-------------------------------------------------------------* \n\n";
+                     }
+                     if(kesempatan == 3){
+                         ulang = 3;
+                         cout<<"*-------------------------------------------------------------* \n";
+                         cout<<"            ATM Anda di BLOKIR!!!, Mampus Kau Anj \n";
+                         pilih = 0;
+                       break;
+                     }
+                 }
+                }while(kesempatan < 3);
               break;
             case 5:
                 //Implementasi Program Gawe Case 5
@@ -272,6 +278,6 @@ int main(){
         cout<<"          Silahkan Meninggalkan ATM, Nyrimpeti ae!! \n";
         cout<<"*-------------------------------------------------------------* \n";
         cout<<"                      ***TERIMA KASIH***                      \n";
-        
+
     return 0;
 }

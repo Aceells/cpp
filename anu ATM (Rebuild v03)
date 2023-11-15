@@ -181,25 +181,77 @@ int main(){
                 cin>>pilihtariktunai;
                 cout<<endl;
                 switch(pilihtariktunai){
-                    case 1:
-                
-                    cout<<"Masukkan Nominal Yang Mau di Tarik: Rp.";
+                    cout<<"Masukkan Nominal Yang Mau di Tarik \n";
                     cin>>nominal;
-                if(nominal <= default_Saldo){
-                    cout<<"*-------------------------------------------------------------* \n";
-                    cout<<"Transaksi Anda Berhasil dan Sedang di Proses!! \n";
-                    cout<<"Jangan Meninggalkan Mesin!, Uang Anda Akan Keluar \n";
-                    default_Saldo = default_Saldo - nominal;
-                    cout<<"                |-----------| \n";
-                    cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
-                    cout<<"                |-----------| \n";
-                    cout<<"*-------------------------------------------------------------* \n";
-                }else{
-                    default_Saldo <= nominal;
-                    cout<<"*-------------------------------------------------------------* \n";
-                    cout<<"         Transaksi Gagal, Saldomu Kurang (Kerjo Maneh!!) \n";
-                    cout<<"*-------------------------------------------------------------* \n\n";
-                }
+                    case 1:
+                        if(pilihtariktunai == 1){
+                            if(nominal % 50000 == 0&&nominal <= default_Saldo){
+                                cout<<"*-------------------------------------------------------------* \n";
+                                cout<<"Transaksi Anda Berhasil dan Sedang di Proses!! \n";
+                                cout<<"Jangan Meninggalkan Mesin!, Uang Anda Akan Keluar \n";
+                                cout<<"Dalam Kelipatan Pecahan 50000 \n";
+                                default_Saldo = default_Saldo - nominal;
+                                cout<<"                |-----------| \n";
+                                cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
+                                cout<<"                |-----------| \n";
+                                cout<<"*-------------------------------------------------------------* \n";
+                            }else{
+                                default_Saldo <= nominal;
+                                cout<<"*-------------------------------------------------------------* \n";
+                                cout<<"         Transaksi Gagal, Saldomu Kurang (Kerjo Maneh!!) \n";
+                                cout<<"*-------------------------------------------------------------* \n\n";
+                            }
+                            break;
+                        }else if(pilihtariktunai == 2){
+                            if(nominal % 100000 == 0&&nominal <= default_Saldo){
+                                cout<<"*-------------------------------------------------------------* \n";
+                                cout<<"Transaksi Anda Berhasil dan Sedang di Proses!! \n";
+                                cout<<"Jangan Meninggalkan Mesin!, Uang Anda Akan Keluar \n";
+                                cout<<"Dalam Kelipatan Pecahan 100000 \n";
+                                default_Saldo = default_Saldo - nominal;
+                                cout<<"                |-----------| \n";
+                                cout<<"Sisa Saldo Anda: Rp."<<default_Saldo<<endl;
+                                cout<<"                |-----------| \n";
+                                cout<<"*-------------------------------------------------------------* \n";
+                            }else{
+                                default_Saldo <= nominal;
+                                cout<<"*-------------------------------------------------------------* \n";
+                                cout<<"         Transaksi Gagal, Saldomu Kurang (Kerjo Maneh!!) \n";
+                                cout<<"*-------------------------------------------------------------* \n\n";
+                            }
+                            break;
+                        }else if(pilihtariktunai == 3){
+                            do{
+                             cout<<"#-------------------------INFO SALDO--------------------------#\n\n";
+                             cout<<"Untuk Mengetahui Saldo Anda, Silahkan Masukkan PIN \n";
+                             cout<<"Masukkan PIN: ";
+                             cin>>PIN;
+                             cout<<endl;
+                             if(PIN == default_PIN){
+                                 cout<<"                    |-----------| \n";
+                                 cout<<"Saldo Anda Sekarang: Rp."<<default_Saldo<<endl;
+                                 cout<<"                    |-----------| \n";
+                               break;
+                             }else{
+                                 kesempatan++;
+                                 if(kesempatan == 2){
+                                     cout<<"*-------------------------------------------------------------* \n";
+                                     cout<<"     Masukkan PIN Yang Benar Tolol! 1x Kesempatan Lagi!!! \n";
+                                     cout<<"*-------------------------------------------------------------* \n\n";
+                                 }
+                                 if(kesempatan == 3){
+                                     ulang = 3;
+                                     cout<<"*-------------------------------------------------------------* \n";
+                                     cout<<"            ATM Anda di BLOKIR!!!, Mampus Kau Anj \n";
+                                     pilih = 0;
+                                   break;
+                                 }
+                             }
+                            }while(kesempatan < 3);
+                            break;
+                        }else if(pilihtariktunai == 0){
+                            ulang = 3;
+                        }
               break;
             case 3:
                 //Implementasi Program Gawe Case 3

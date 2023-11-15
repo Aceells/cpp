@@ -14,7 +14,7 @@ int main(){
     cout<<"#---------------------BANK CENTRAL ANJAY----------------------#\n\n";
     //Inisialisasi karo Deklarasi
     int NomorRekeningAcel, PIN, NomorRekeningLain, NomorRekeningBCA, NomorVA, BiayaAdmin;
-    int default_NomorRekeningAcel = 1212, default_PIN = 666, default_Saldo = 50000, default_BiayaAdmin = 2500;
+    int default_NomorRekeningAcel = 1212, default_PIN = 666, default_Saldo = 500000, default_BiayaAdmin = 2500;
     int default_NomorRekeningBCA = 12345, default_NomorRekeningLain = 54321, default_NomorVA = 0123456;
     int pilih, nominal, pilihtransfer, pilihtariktunai;
     char lanjut;
@@ -185,7 +185,8 @@ int main(){
                     cin>>nominal;
                     case 1:
                         if(pilihtariktunai == 1){
-                            if(nominal % 50000 == 0&&nominal <= default_Saldo){
+                            if(nominal % 50000 == 0){
+                                nominal <= default_Saldo;
                                 cout<<"*-------------------------------------------------------------* \n";
                                 cout<<"Transaksi Anda Berhasil dan Sedang di Proses!! \n";
                                 cout<<"Jangan Meninggalkan Mesin!, Uang Anda Akan Keluar \n";
@@ -252,7 +253,8 @@ int main(){
                         }else if(pilihtariktunai == 0){
                             ulang = 3;
                         }
-              break;
+                        break;
+                }
             case 3:
                 //Implementasi Program Gawe Case 3
                 cout<<"#-------------------------SETOR TUNAI-------------------------#\n\n";
